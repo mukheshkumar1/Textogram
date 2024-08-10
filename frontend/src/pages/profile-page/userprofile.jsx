@@ -12,7 +12,7 @@ const ProfilePicturePage = () => {
   return (
     <div className="flex flex-col justify-center items-center h-screen p-4">
       <img 
-        src={profilePicUrl} 
+        src={decodeURIComponent(profilePicUrl)} 
         alt="Profile" 
         className="w-auto h-auto max-w-full max-h-full mb-4" 
       />
