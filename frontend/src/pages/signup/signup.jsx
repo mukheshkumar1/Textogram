@@ -34,15 +34,15 @@ const SignUp = () => {
         <form onSubmit={handleSubmit}>
         
           <label className="label p-2">
-            <span className="text-base label-text">Full Name</span>
+            <span className="text-base text-white label-text">Full Name</span>
           </label>
-          <input type="text" placeholder="Enter Full Name" className="w-full input input-bordered h-10"
+          <input type="text " placeholder="Enter Full Name" className="w-full input input-bordered h-10"
             value={inputs.fullName}
             onChange={(e)=> setInputs({...inputs,fullName:e.target.value})}
           />
           <div>
           <label className="label p-2">
-            <span className="text-base label-text">User Name</span>
+            <span className="text-base text-white label-text">User Name</span>
 
           </label>
           <input type="text" placeholder="Enter User Name" className="w-full input input-bordered h-10"
@@ -52,7 +52,7 @@ const SignUp = () => {
         </div>
         <div>
           <label className="label p-2">
-            <span className="text-base label-text">Email</span>
+            <span className="text-base text-white label-text">Email</span>
 
           </label>
           <input type="email" placeholder="Enter Email" className="w-full input input-bordered h-10"
@@ -62,7 +62,7 @@ const SignUp = () => {
         </div>
           <div>
           <label className="label p-2">
-            <span className="text-base label-text">Password</span>
+            <span className="text-base text-white label-text">Password</span>
 
           </label>
           <input type="password" placeholder="Enter Password" className="w-full input input-bordered h-10"
@@ -72,7 +72,7 @@ const SignUp = () => {
         </div>
         <div>
           <label className="label p-2">
-            <span className="text-base label-text">confirm Password</span>
+            <span className="text-base text-white label-text">confirm Password</span>
 
           </label>
           <input type="password" placeholder="Confirm Password" className="w-full input input-bordered h-10"
@@ -92,7 +92,7 @@ const SignUp = () => {
 
           </div>
           </label>
-          <Link to='/login' className="text-sm hover:underline hover:text-blue-400 mt-2 inline-block">
+          <Link to='/login' className="text-sm text-white hover:underline hover:text-blue-400 mt-2 inline-block">
             Already Have an Account
           </Link>
         </div>

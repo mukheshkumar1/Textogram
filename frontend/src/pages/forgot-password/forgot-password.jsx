@@ -39,7 +39,7 @@ const ForgotPassword = () => {
               {loading ? <span className="loading loading-spinner"></span> : "Reset Password"}
             </button>
           </div>
-          <Link to='/login' className="text-sm hover:underline hover:text-blue-400 mt-2 inline-block">
+          <Link to='/login' className="text-sm text-white hover:underline hover:text-blue-400 mt-2 inline-block">
             Back to Login
           </Link>
         </form>

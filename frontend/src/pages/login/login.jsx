@@ -47,12 +47,12 @@ const Login = () => {
             </button>
           </div>
           <div className="flex justify-between mt-2">
-      <Link to='/forgot-password' className="text-sm hover:underline hover:text-blue-400 inline-block">
+      <Link to='/forgot-password' className="text-sm text-white hover:underline hover:text-blue-400 inline-block">
         Forgot Password?
       </Link>
       </div>
       <div className="flex justify-between mt-2">
-      <Link to='/signup' className="text-sm hover:underline hover:text-blue-400 inline-block">
+      <Link to='/signup' className="text-sm text-white hover:underline hover:text-blue-400 inline-block">
         {"Don't"} Have an Account
       </Link>
     </div>

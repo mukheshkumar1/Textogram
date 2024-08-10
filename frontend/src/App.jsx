@@ -8,6 +8,8 @@ import { useAuthContext } from './Context/AuthContext'
 import ForgotPassword from './pages/forgot-password/forgot-password'
 import ResetPassword from './pages/reset-password/reset-password'
 import ProfilePage from './pages/profile-page/profile'
+import ProfilePicturePage from './pages/profile-page/userprofile'
+import Conversation from './components/sidebar/Conversation'
 function App() {
   const {authUser}=useAuthContext()
   return (
@@ -19,6 +21,8 @@ function App() {
    <Route path="/forgot-password" element={<ForgotPassword/>} />
    <Route path="/reset-password/:token" element={<ResetPassword/>} />
    <Route path="/profile" element={authUser ?<ProfilePage/>: <Navigate to={"/"}/>}/>
+   <Route path="/" element={<Conversation />} />
+   <Route path="/profile-picture/:profilePicUrl" element={<ProfilePicturePage />} />
 
    </Routes>
    <Toaster/>
