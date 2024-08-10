@@ -107,7 +107,7 @@ export const forgotPassword = async (req, res) => {
 
         await user.save()
 
-        const resetUrl = `https://textogram-lo7b.onrender.com/reset-password${resetToken}`
+        const resetUrl = `https://textogram-lo7b.onrender.com/reset-password/${resetToken}`
 
         const message = `You requested a password reset. Click this link to reset your password: ${resetUrl}`
 
