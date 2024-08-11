@@ -10,11 +10,27 @@ const ProfilePicturePage = () => {
   const [profilePic, setProfilePic] = useState('');
 
   useEffect(() => {
-    if (authUser) {
-      setProfilePic(authUser.profilePic || decodeURIComponent(profilePicUrl));
-    } else {
-      setProfilePic(decodeURIComponent(profilePicUrl));
-    }
+    const loadProfilePic = async () => {
+      if (authUser && authUser.profilePic) {
+        // Handle case where profilePic is a blob URL
+        if (authUser.profilePic.startsWith('blob:')) {
+          setProfilePic(authUser.profilePic);
+        } else {
+          // Handle case where profilePic is a regular URL
+          setProfilePic(decodeURIComponent(authUser.profilePic));
+        }
+      } else if (profilePicUrl) {
+        // Handle case where profilePicUrl is a blob URL
+        if (profilePicUrl.startsWith('blob:')) {
+          setProfilePic(decodeURIComponent(profilePicUrl));
+        } else {
+          // Handle case where profilePicUrl is a regular URL
+          setProfilePic(decodeURIComponent(profilePicUrl));
+        }
+      }
+    };
+
+    loadProfilePic();
   }, [authUser, profilePicUrl]);
 
   const handleBackToHome = () => {
