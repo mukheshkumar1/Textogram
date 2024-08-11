@@ -10,6 +10,8 @@ import ResetPassword from './pages/reset-password/reset-password'
 import ProfilePage from './pages/profile-page/profile'
 import ProfilePicturePage from './pages/profile-page/userprofile'
 import Conversation from './components/sidebar/Conversation'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const {authUser}=useAuthContext()
   return (
@@ -23,9 +25,11 @@ function App() {
    <Route path="/profile" element={authUser ?<ProfilePage/>: <Navigate to={"/"}/>}/>
    <Route path="/" element={<Conversation />} />
    <Route path="/profile-picture/:profilePicUrl" element={<ProfilePicturePage />} />
+  
 
    </Routes>
    <Toaster/>
+   <ToastContainer />
     </div>
   )
 

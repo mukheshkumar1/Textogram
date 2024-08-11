@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { IoPlaySkipBackOutline, IoCamera } from 'react-icons/io5'; 
 import { useAuthContext } from '../../Context/AuthContext';
+import { toast } from 'react-toastify'; // Import toast function
 
 const ProfilePage = () => {
   const { authUser } = useAuthContext();
@@ -32,7 +33,6 @@ const ProfilePage = () => {
   const handleProfilePicChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-     
       setNewProfilePic(URL.createObjectURL(file));
     }
   };
@@ -41,13 +41,11 @@ const ProfilePage = () => {
     try {
       const formData = new FormData();
       if (newProfilePic) {
-       
         const response = await fetch(newProfilePic);
         const blob = await response.blob();
         formData.append('profilePic', blob);
       }
 
-      // Assuming that username and email fields are handled elsewhere or are optional
       const res = await fetch("/api/auth/updateprofile", {
         method: "PUT",
         body: formData,
@@ -67,8 +65,14 @@ const ProfilePage = () => {
         email: data.email,
         profilePic: data.profilePic, 
       });
+
+      // Show success message
+      toast.success('Profile updated successfully!');
     } catch (error) {
       console.error('Error updating profile:', error);
+      
+      // Show error message
+      toast.error('Error updating profile. Please try again.');
     }
   };
 
